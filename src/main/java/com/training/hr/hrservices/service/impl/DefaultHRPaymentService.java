@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @AllArgsConstructor
@@ -28,6 +29,14 @@ public class DefaultHRPaymentService implements HRPaymentsService {
 
     @Override
     public List<HRPayments> findByEmpId(int empId) {
+        /*
+        try {
+            TimeUnit.SECONDS.sleep(3L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+         */
         return hrPaymentsRepository.findByEmpId(empId);
     }
 
